@@ -30,12 +30,9 @@ public class Dataset implements Indice
         File file = new File("dati.csv");
          this.URL = URL;
         if (file.exists())
-        {
             ParsingCsv();
-            SaveToFile();
-        } else
+        else
             ImportaDataset();
-        SaveToFile();
          }
 
 
@@ -50,7 +47,7 @@ public class Dataset implements Indice
     }
     /**
      *
-     * @return Viene restituita una stringa in fomato json contenente l'url da cui ricavare i dati
+     *  Viene restituita una stringa in fomato json contenente l'url da cui ricavare i dati
      */
     private  String DownloadJson()
     {
@@ -141,14 +138,16 @@ public class Dataset implements Indice
                         StringaOut[j]=StringaIn[i];
                     }
                 }
+
                 riga=new String(StringaOut);
                 Dati=riga.split(",");	//I vari records delimitati da virgole vengono separati e inseriti in datistring
+                if(Dati.length!=1) {
+                    MarketPrice elemento=DisponiDati(Dati);  //Il metodo dispone i records all'interno dell'oggetto
+                    Dataset.add(elemento);    //L'oggetto viene aggiunto a un vettore
+                }
 
-
-                MarketPrice elemento=DisponiDati(Dati);  //Il metodo dispone i records all'interno dell'oggetto
-
-                Dataset.add(elemento);	//L'oggetto viene aggiunto a un vettore
             }
+
         }
         finally
         {
@@ -158,10 +157,10 @@ public class Dataset implements Indice
         CreaMetadati(SourceField);	//Vengono creati i metadati
     }
 
-    private MarketPrice DisponiDati(String[] Dati)
+    private MarketPrice DisponiDati(String Dati[])
     {
-      //  System.out.println("ciao");
         MarketPrice elemento=new MarketPrice(Dati[Category],Dati[Sector_Code]);
+
         try
         {
             elemento.setProductCode(Dati[Product_Code]);
@@ -247,14 +246,6 @@ public class Dataset implements Indice
         {
             Metadati[i]=new Metadati((Field)AliasName[i],SourceField[i]);	//Crea un vettore di metadati
         }
-    }
-
-    private  void SaveToFile() throws IOException
-    {
-        FileWriter file=new FileWriter("dati.txt");
-        BufferedWriter buffer=new BufferedWriter(file);
-        buffer.write(toString());
-        file.close();
     }
     public Metadati[] getMetadati()
     {

@@ -11,10 +11,13 @@ public class Category
 
     }
     public String getCategory()
+
     {
         return Category;
     }
+
     public String getSectorCode()
+
     {
         return SectorCode;
     }

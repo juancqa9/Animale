@@ -10,8 +10,6 @@ public class Metadati
     private String Type;
     /**
      * Il costruttore istanzia un oggetto contenente metadati attraverso i parametri passati
-     * @param Alias parametro di tipo field che rappresenta un campo di un oggetto
-     * @param SourceField parametro di tipo string che rappresenta il nome di un oggetto
      */
     public Metadati(Field Alias, String SourceField)
     {

@@ -29,8 +29,6 @@ public class AnalisiDati
 
     /**
      * La procedura effettua il marshalling in Json dell'oggetto passato come parametro
-     * @param obj Oggetto da convertire in formato Json
-     * @throws IOException Eccezione lanciata in caso di errori nella scrittura del Json
      */
     public void MarshallingJson(Object obj) throws IOException
     {
@@ -76,7 +74,7 @@ public class AnalisiDati
     }
     /**
      *
-     * @return Restituisce il dataset importato istanziando la classe AnalisiDati
+     *  Restituisce il dataset importato istanziando la classe AnalisiDati
      */
     public Dataset getDataset()
     {
