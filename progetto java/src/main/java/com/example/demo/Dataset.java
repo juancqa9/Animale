@@ -123,7 +123,7 @@ public class Dataset implements Indice
                 {											//ed elimina le virgolette che delimitano i vari records. Il risultato dell'operazione è contenuto
                     if(StringaIn[i]=='\"')					//nell'array di caratteri StringaOut
                     {
-                        i++;
+                        i++; //ciao
                         do
                         {
                             if(StringaIn[i]==',')
