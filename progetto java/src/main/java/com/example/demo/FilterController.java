@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -9,9 +10,9 @@ import java.io.IOException;
 @Controller
 public class FilterController
 {
-    @RequestMapping("/filter")
+    @RequestMapping("filter/{filtro}")
     @ResponseBody
-    public String dati(String filtro)throws  IOException
+    public String dati(@PathVariable String filtro)throws  IOException
     {
         return OttieniJson(filtro);
     }
