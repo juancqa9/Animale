@@ -34,6 +34,7 @@ public class Product extends  Category
     {
         this.ProductBriefDescription=productBriefDescription;
     }
+    @Override
     public String toString()
     {
         String Descrizione;
@@ -41,6 +42,7 @@ public class Product extends  Category
                 ";\nDescrizione Prodotto="+ProductDesc+";\nBreve descrizione del Prodotto="+ProductBriefDescription+";\n";
         return Descrizione;
     }
+    @Override
     public boolean equals(Object obj)
     {
         Product temp=(Product) obj;

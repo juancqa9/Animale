@@ -33,6 +33,7 @@ public class CountryProduct extends Product
     {
         this.Period=period;
     }
+    @Override
     public String toString()
     {
         String Descrizione;
@@ -40,6 +41,7 @@ public class CountryProduct extends Product
                 ";\nPaese="+Country+";\nPeriodo="+Period+";\n";
         return Descrizione;
     }
+    @Override
     public boolean equals(Object obj)
     {
         CountryProduct temp=(CountryProduct) obj;

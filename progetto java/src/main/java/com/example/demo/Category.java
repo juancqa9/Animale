@@ -21,12 +21,14 @@ public class Category
     {
         return SectorCode;
     }
+    @Override
     public String toString()
     {
         String Descrizione;
         Descrizione="Category="+Category+";\nSectorCode="+SectorCode+";\n";
         return Descrizione;
     }
+    @Override
     public boolean equals(Object obj)
     {
         Category temp=(Category) obj;

@@ -15,12 +15,14 @@ public class MarketPrice extends CountryProduct
     {
         this.MPMarketPrice=mpMarketPrice;
     }
+    @Override
     public String toString()
     {
         String Descrizione;
         Descrizione=super.toString()+"Prezzo DI Mercato="+MPMarketPrice+";\n";
         return Descrizione;
     }
+    @Override
     public boolean equals(Object obj)
     {
         MarketPrice temp=(MarketPrice) obj;
