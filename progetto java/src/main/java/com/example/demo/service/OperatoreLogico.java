@@ -1,4 +1,9 @@
-package com.example.demo;
+package com.example.demo.service;
+
+import com.example.demo.Category;
+import com.example.demo.CountryProduct;
+import com.example.demo.MarketPrice;
+import com.example.demo.Product;
 
 import java.util.Vector;
 

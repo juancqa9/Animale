@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public class Product extends  Category
+public class Product extends com.example.demo.Category
 {
     private String ProductCode;
     private String ProductDesc;
