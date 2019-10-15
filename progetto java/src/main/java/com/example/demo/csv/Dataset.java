@@ -1,7 +1,8 @@
-package com.example.demo.model;
+package com.example.demo.csv;
 
 
 import com.example.demo.*;
+import com.example.demo.model.Indice;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +23,7 @@ public class Dataset implements Indice
 
     private String link;
     static String URL;
-    private com.example.demo.model.Metadati Metadati[];
+    private com.example.demo.csv.Metadati Metadati[];
     private Vector<Object> Dataset=new Vector<Object>();
 
          public Dataset(String URL) throws IOException

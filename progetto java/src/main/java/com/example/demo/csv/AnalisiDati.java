@@ -1,6 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.csv;
 
-import com.example.demo.model.Dataset;
+import com.example.demo.csv.Dataset;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
