@@ -16,19 +16,22 @@ public class AnalisiDati
 
     //Metodi
 
-    /**
-     * Costruttore della classe AnalisiDati. Quando viene istanziato un oggetto
-     * il programma effettua il download del dataset dall'URL di riferimento e
-     * crea un oggetto di tipo Dataset.
+
+     // Costruttore della classe AnalisiDati. Quando viene istanziato un oggett il programma effettua il download
+     // del dataset dall'URL di riferimento e crea un oggetto di tipo Dataset.
+     /**
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per il  download del file
+     * in formato CSV, da cui si ottiene il Dataset
      */
     public AnalisiDati() throws IOException
     {
         String URL="http://data.europa.eu/euodp/data/api/3/action/package_show?id=ef78194c-e94c-47dd-85f7-44ba98b6746c";	//Url di riferimento
         animale = new Dataset(URL);  //Viene istanziato il dataset
     }
-
+    // La procedura effettua il marshalling in Json dell'oggetto passato come parametro
     /**
-     * La procedura effettua il marshalling in Json dell'oggetto passato come parametro
+     * @param obj param definisce il parametro di un metodo, obj deve essere trasformato in formato Json
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la scrittura de Json
      */
     public void MarshallingJson(Object obj) throws IOException
     {
@@ -54,9 +57,11 @@ public class AnalisiDati
         file.close();
 
     }
-
+     // Il metodo legge il file "temp.json" e restituisce una stringa contenete il Json
      /**
-     * Il metodo legge il file "temp.json" e restituisce una stringa contenete il Json
+     * @return Indica i valori di ritorno di un metodo,in questo caso una stringa contenete il Json
+     * @throws FileNotFoundException Eccezione lanciata in caso il file non venisse trovato
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la lettura del Json
      */
     public String LeggiJson() throws FileNotFoundException, IOException
     {
@@ -72,10 +77,15 @@ public class AnalisiDati
         file.close();
         return Json;
     }
+
+
+     // Restituisce il dataset importato istanziando la classe AnalisiDati
+
     /**
      *
-     *  Restituisce il dataset importato istanziando la classe AnalisiDati
+     * @return Indica i valori di ritorno di un metodo,in questo caso animale che conterrà il Dataset
      */
+
     public Dataset getDataset()
     {
         return animale;
