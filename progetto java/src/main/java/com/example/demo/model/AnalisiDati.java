@@ -1,8 +1,8 @@
-package com.example.demo;
+package com.example.demo.model;
 
+import com.example.demo.model.Dataset;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 
 import java.io.*;
 import com.fasterxml.jackson.databind.ObjectMapper;

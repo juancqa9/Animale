@@ -1,7 +1,7 @@
-package com.example.demo;
+package com.example.demo.model;
 
 
-import net.minidev.json.JSONValue;
+import com.example.demo.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +22,7 @@ public class Dataset implements Indice
 
     private String link;
     static String URL;
-    private Metadati Metadati[];
+    private com.example.demo.model.Metadati Metadati[];
     private Vector<Object> Dataset=new Vector<Object>();
 
          public Dataset(String URL) throws IOException
@@ -233,7 +233,7 @@ public class Dataset implements Indice
     {
 
         ArrayList<Field> Alias;	//Vettore contenente i campi utilizzati all'interno del programma per riferirsi ai vari attributi dei records
-        Alias=new ArrayList<Field>(Arrays.asList(Category.class.getDeclaredFields()));	//ArrayList contenente i campi di ospedale
+        Alias=new ArrayList<Field>(Arrays.asList(com.example.demo.Category.class.getDeclaredFields()));	//ArrayList contenente i campi di ospedale
         ArrayList<Field> temp=new ArrayList<Field>(Arrays.asList(Product.class.getDeclaredFields()));	//ArrayList contenente i campi di prontosoccorso
         Alias.addAll(temp);	//Aggiunge temp ad alias
         temp=new ArrayList<Field>(Arrays.asList(CountryProduct.class.getDeclaredFields()));	//ArrayList contenente i campi di permanenza

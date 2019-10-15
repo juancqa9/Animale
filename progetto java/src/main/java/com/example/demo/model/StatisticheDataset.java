@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.model;
 
 
 import java.lang.reflect.InvocationTargetException;
