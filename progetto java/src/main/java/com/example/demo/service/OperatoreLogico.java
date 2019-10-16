@@ -7,11 +7,19 @@ import com.example.demo.Product;
 
 import java.util.Vector;
 
+/**
+ * La classe OperatoreLogico si occupa di effettuare operazioni logiche tra vettori.
+ */
 public class OperatoreLogico
 {
     private Vector<Object> vettoreOut;
+
     /**
-     * Il metodo seleziona la funzione logica adatta in relazione all'operatore passato per parametro
+     *
+     * @param Operatore param definisce il parametro di un metodo, contiene un operatore logico
+     * @param vettore1 param definisce il parametro di un metodo, contiene un argomento della funzione logica
+     * @param vettore2 param definisce il parametro di un metodo, contiene un argomento della funzione logica
+     * @return Indica i valori di ritorno di un metodo,in questo caso restituisce il risultato dell'operazione logica
      */
     public Vector<Object> Confronto(String Operatore, Vector<Object> vettore1, Vector<Object> vettore2)
     {
@@ -26,8 +34,12 @@ public class OperatoreLogico
         }
         return vettoreOut;
     }
+
     /**
-     * Il metodo seleziona la funzione logica adatta in relazione all'operatore passato per parametro
+     *
+     * @param Operatore param definisce il parametro di un metodo, contiene un operatore logico
+     * @param vettore param definisce il parametro di un metodo, contiene un argomento della funzione logica
+     * @return Indica i valori di ritorno di un metodo,in questo caso restituisce il risultato dell'operazione logica
      */
     public Vector<Object> Confronto(String Operatore,Vector<Object> vettore)
     {
@@ -35,9 +47,10 @@ public class OperatoreLogico
             not(vettore);
         return vettoreOut;
     }
+
     /**
-     * Funzione logica and. Ottiene come risultato un vettore contenente l'intersezione tra i vettori passati come argomenti.
-     * Il vettore risultante contiene gli elementi in comune tra i i due vettori
+     * @param vettore1 param definisce il parametro di un metodo, contiene un argomento della funzione logica
+     * @param vettore2 param definisce il parametro di un metodo, contiene un argomento della funzione logica
      */
     private void and(Vector<Object> vettore1,Vector<Object> vettore2)
     {
@@ -49,9 +62,10 @@ public class OperatoreLogico
                 vettoreOut.add(temp);
         }
     }
+
     /**
-     * Funzione logica or. Ottiene come risultato un vettore contenente l'unione tra i vettori passati come argomenti.
-     * Il vettore risultante contiene l'unione degli elementi presenti nei due vettori
+     * @param vettore1 param definisce il parametro di un metodo, contiene un argomento della funzione logica
+     * @param vettore2 param definisce il parametro di un metodo, contiene un argomento della funzione logica
      */
     private void or(Vector<Object> vettore1,Vector<Object> vettore2)
     {
@@ -68,9 +82,10 @@ public class OperatoreLogico
                 vettoreOut.add(temp);
         }
     }
+
     /**
-     * Funzione logica not. Ottiene come risultato un vettore complementare a quello passato come argomento.
-     * Il vettore risultante contiene gli elementi del dataset che non sono presenti nel vettore passato per argomento
+     *
+     * @param vettore param definisce il parametro di un metodo, contiene un argomento della funzione logica
      */
     public void not(Vector<Object> vettore)
     {
@@ -82,8 +97,12 @@ public class OperatoreLogico
                 vettoreOut.add(temp);
         }
     }
+
     /**
-     * La funzione verifica se l'oggetto obj è contenuto nel vettore
+     *
+     * @param vettore param definisce il parametro di un metodo, contiene il vettore
+     * @param obj param definisce il parametro di un metodo, contiene un oggetto di cui verifica la presenza nel vettore.
+     * @return Indica i valori di ritorno di un metodo,in questo caso conta l'oggetto nel vettore contenuto nelle classi.
      */
     private boolean contains(Vector<Object> vettore, Object obj)
     {

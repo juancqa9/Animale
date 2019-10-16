@@ -4,13 +4,29 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Vector;
 
+/**
+ * La classe OperatoreCondizionale si occupa di effettuare operazioni condizionali tra vettori.
+ */
 public class OperatoreCondizionale
 {
     private Vector<?> vettore;
+
+    /**
+     *
+     * @param vettore param definisce il parametro di un metodo, contiene il vettore del costruttore.
+     */
     public OperatoreCondizionale(Vector<Object> vettore)
     {
         this.vettore=vettore;
     }
+
+    /**
+     *
+     * @param segno param definisce il parametro di un metodo, contiene il segno.
+     * @param attributo param definisce il parametro di un metodo, definisce l'attributo.
+     * @param valore param definisce il parametro di un metodo, contiene il valore.
+     * @return Indica i valori di ritorno di un metodo,in questo caso confronta l'oggetto nel vettore.
+     */
     public Vector<Object> Confronto(String segno, String attributo, double...valore)
     {
         Vector<Object> vettoreOut=new Vector<Object>();
@@ -39,6 +55,15 @@ public class OperatoreCondizionale
         }
         return vettoreOut;
     }
+
+    /**
+     *
+     * @param segno param definisce il parametro di un metodo, contiene il segno.
+     * @param val param definisce il parametro di un metodo, definisce il valore.
+     * @param valore param definisce il parametro di un metodo, definisce più valori.
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un confronto tra più condizioni
+     * e restituisce il risultato.
+     */
     private boolean Segno(String segno,double val, double...valore)
     {
         switch(segno)

@@ -4,10 +4,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Vector;
 
+/**
+ * La classe Filtro genera le condizioni necessarie per essere poi richiamate dai vari operatori.
+ */
 public class Filtro
 {
     private Vector<Object> vettore;
     private Vector<Object> vettoreOut;
+
+    /**
+     *
+     * @param vettore param definisce il parametro di un metodo, contiene i filtri per operatori condizionali e logici.
+     * @param filtro param definisce il parametro di un metodo, contiene i dati filtrati in formato json.
+     */
     public Filtro(Vector<Object> vettore,String filtro)
     {
         this.vettore=vettore;
@@ -16,6 +25,12 @@ public class Filtro
         else
             vettoreOut=OttieniFiltroCondizionale(filtro);
     }
+
+    /**
+     *
+     * @param filtro definisce il parametro di un metodo, contiene i filtri necessari per l'operatore condizionale.
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un confronto dei filtri.
+     */
     private Vector<Object> OttieniFiltroCondizionale(String filtro)
     {
         String attributo;
@@ -42,6 +57,12 @@ public class Filtro
         else
             return filter.Confronto(segno,attributo,Double.parseDouble(valore));
     }
+
+    /**
+     *
+     * @param filtro definisce il parametro di un metodo, contiene i filtri necessari per l'operatore logico.
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un confronto dei filtri.
+     */
     private Vector<Object> OttieniFiltroLogico(String filtro)
     {
         Vector<Object> vettore1;
@@ -73,6 +94,13 @@ public class Filtro
         OperatoreLogico filter=new OperatoreLogico();
         return filter.Confronto(segno,vettore1,vettore2);
     }
+
+    /**
+     *
+     * @param filtro  filtro definisce il parametro di un metodo, contiene i filtri necessari per la uguaglianza dei valori
+     * nel vettore.
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un eguaglianza dei filtri letti nel vettore.
+     */
     private Vector<Object> OttieniFiltroUguaglianza(String filtro)
     {
         System.out.println(filtro);
@@ -115,6 +143,11 @@ public class Filtro
         }
         return vettoreOut;
     }
+
+    /**
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua una lettura del vettore.
+     */
     public Vector<Object> getData()
     {
         return vettoreOut;
