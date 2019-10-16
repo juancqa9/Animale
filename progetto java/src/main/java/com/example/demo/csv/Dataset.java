@@ -20,12 +20,17 @@ import java.util.Vector;
 
 public class Dataset implements Indice
 {
-
+    //Attributi
     private String link;
     static String URL;
     private com.example.demo.csv.Metadati Metadati[];
     private Vector<Object> Dataset=new Vector<Object>();
 
+    /**
+     *
+     * @param URL param definisce il parametro di un metodo, effettua il download del dataset
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la scrittura del csv
+     */
          public Dataset(String URL) throws IOException
          {
         File file = new File("dati.csv");
@@ -36,9 +41,12 @@ public class Dataset implements Indice
             ImportaDataset();
          }
 
-
-
-
+// ricava l'url da cui scaricare il dataset effettuando il parsing di un file Json, ottenuto il link effettuo il download
+    /**
+     *
+     * @throws MalformedURLException l'eccezione viene lanciata se l'URL non è specificata in modo corretto
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la scrittura del csv
+     */
     private  void ImportaDataset() throws MalformedURLException, IOException
     {
 
@@ -46,9 +54,10 @@ public class Dataset implements Indice
         DownloadDataset();
         ParsingCsv();
     }
+
     /**
      *
-     *  Viene restituita una stringa in fomato json contenente l'url da cui ricavare i dati
+     * @return Indica i valori di ritorno di un metodo,in questo caso contiene l'url in formato Json da cui ricavare i dati
      */
     private  String DownloadJson()
     {
@@ -66,16 +75,22 @@ public class Dataset implements Indice
                 {
                     dati += riga;
                 }
-            } finally {
+            } finally
+            {
                 in.close();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
         return dati;
     }
     //Il metodo effettua il parsing del json per ottenere l'URL da cui effettuare il download
-
+    /**
+     *
+     * @param info param definisce il parametro di un metodo, contiene i dati in formato Json
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua il download de dataset
+     */
     private  String SetUrlDataset(String info)
     {
         String URL=new String();
@@ -91,6 +106,11 @@ public class Dataset implements Indice
         return URL;
     }
    // Il metodo effettua il download del file CSV contenente i record del dataset
+    /**
+     *
+     * @throws MalformedURLException l'eccezione viene lanciata se l'URL non è specificata in modo corretto
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la scrittura del file scaricato
+     */
     private void DownloadDataset() throws MalformedURLException,IOException
     {
         try (InputStream in = URI.create(link).toURL().openStream())
@@ -99,6 +119,10 @@ public class Dataset implements Indice
         }
     }
     // Il metodo effettua il parsing del file in formato CSV e dispone i records all'interno delle apposite classi
+    /**
+     *
+     * @throws IOException La clausola throws genera un’eccezione di tipo IOException, per la lettura del file scaricatto
+     */
     private  void ParsingCsv() throws IOException
     {
 
@@ -157,7 +181,12 @@ public class Dataset implements Indice
         file.close();
         CreaMetadati(SourceField);	//Vengono creati i metadati
     }
-
+//Disponi i records all'interno dei vari campi dell'oggeto
+    /**
+     *
+     * @param Dati param definisce il parametro di un metodo, Dati[] contiene i vari records
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua l'elemento
+     */
     private MarketPrice DisponiDati(String Dati[])
     {
         MarketPrice elemento=new MarketPrice(Dati[Category],Dati[Sector_Code]);
@@ -229,7 +258,11 @@ public class Dataset implements Indice
 
         return elemento;
     }
-
+//Vettore contenete i metadati del dataset
+    /**
+     *
+     * @param SourceField param definisce il parametro di un metodo, contiene i nomi originali del records
+     */
     private void CreaMetadati(String[] SourceField)
     {
 
@@ -248,10 +281,20 @@ public class Dataset implements Indice
             Metadati[i]=new Metadati((Field)AliasName[i],SourceField[i]);	//Crea un vettore di metadati
         }
     }
+
+    /**
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua  un vector contenente i metadati del dataset
+     */
     public Metadati[] getMetadati()
     {
         return Metadati;
     }
+
+    /**
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua  un vector contenente gli oggetti del dataset
+     */
     public Vector<Object> getData()
     {
         return Dataset;
