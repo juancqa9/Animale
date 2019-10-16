@@ -3,6 +3,9 @@ package com.example.demo.model;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * La classe calcola le statistiche del vettore passato al costruttore.
+ */
 public class StatisticheDati
 {
     private Double ArrayNumber[];
@@ -14,10 +17,11 @@ public class StatisticheDati
     private double somma;
     private int count;
     private Vector<Parola> parole;
+
     /**
-     * Il costruttore istanzia un vettore di tipo Double, se il parametro passato è di tipo double e ne calcola le statistiche,
-     * mentre istanzia un vettore di tipo string, se il parametro passato è di tipo String e ne calcola le occorrenze
-     * @param vettore vettore di cui vengono calcolate le statistiche
+     *
+     * @param vettore  param definisce il parametro di un metodo, contiene il
+     *vettore di cui vengono calcolate le statistiche.
      */
     public StatisticheDati(ArrayList<Object> vettore)
     {
@@ -37,17 +41,18 @@ public class StatisticheDati
             Occorrenze();
         }
     }
+
     /**
-     * Metodo che calcola la media e imposta la relativa variabile d'istanza
+     * Metodo che calcola la media e imposta la relativa variabile d'istanza.
      */
     public void Media()
     {
         media=somma/count;
     }
-    /**
-     * Metodo che calcola il minimo e imposta la relativa variabile d'istanza
-     */
 
+    /**
+     * Metodo che calcola il minimo e imposta la relativa variabile d'istanza.
+     */
     public void Minimo()
     {
         double min=ArrayNumber[0];
@@ -58,7 +63,8 @@ public class StatisticheDati
         }
         minimo=min;
     }
-    /**
+
+    /**.
      * Metodo che calcola il massimo e imposta la relativa variabile d'istanza
      */
         public void Massimo()
@@ -71,8 +77,9 @@ public class StatisticheDati
         }
         massimo=max;
     }
+
     /**
-     * Metodo che calcola la deviazione standard e imposta la relativa variabile d'istanza
+     * Metodo che calcola la deviazione standard e imposta la relativa variabile d'istanza.
      */
     public void DeviazioneStandard()
     {
@@ -83,8 +90,9 @@ public class StatisticheDati
         }
         deviazione_standard=Math.sqrt(varianza/count);
     }
+
     /**
-     * Metodo che calcola la somma e imposta la relativa variabile d'istanza
+     * Metodo che calcola la somma e imposta la relativa variabile d'istanza.
      */
     public void Somma()
     {
@@ -95,8 +103,9 @@ public class StatisticheDati
         }
         this.somma=somma;
     }
+
     /**
-     * Metodo che conta il numero di valori e imposta la relativa variabile d'istanza
+     * Metodo che conta il numero di valori e imposta la relativa variabile d'istanza.
      */
     public void Count()
     {
@@ -104,6 +113,7 @@ public class StatisticheDati
         for(i=0;i<ArrayNumber.length;i++);
         count=i;
     }
+
     /**
      * Metodo che conta le occorrenze e imposta la relativa variabile d'istanza
      */
@@ -135,49 +145,63 @@ public class StatisticheDati
     }
 
     /**
-     * @return restituisce la media
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua la media.
      */
     public double getMedia()
     {
         return media;
     }
+
     /**
-     * @return restituisce il minimo
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua il minimo.
      */
     public double getMinimo()
     {
         return minimo;
     }
+
     /**
-     * @return restituisce il massimo
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua il massimo.
      */
     public double getMassimo()
     {
         return massimo;
     }
+
     /**
-     * @return restituisce la deviazione standard
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua la deviazione standard.
      */
     public double getDeviazioneStandard()
     {
         return deviazione_standard;
     }
+
     /**
-     * @return restituisce la somma
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua la somma.
      */
     public double getSomma()
     {
         return somma;
     }
+
     /**
-     * @return restituisce il numero degli elementi
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua il numero degli elementi.
      */
     public int getCount()
     {
         return count;
     }
+
     /**
-     * @return restituisce il numero delle occorrenze
+     *
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua
+     * il numero delle occorrenze della parola.
      */
     public Vector<Parola> getOccorrenze()
     {

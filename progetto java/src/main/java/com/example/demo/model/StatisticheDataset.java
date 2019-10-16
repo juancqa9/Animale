@@ -1,24 +1,33 @@
 package com.example.demo.model;
 
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * La classe calcola le statistiche degli elementi contenuti nel Vector passato come parametro.
+ */
 public class StatisticheDataset
 {
     private Vector<?> vettore;
+
     /**
-     * Crea un oggetto con cui si possono calcolare
-     * le statistiche degli elementi contenuti nel vettore passato per parametro
+     *
+     * @param vettore param definisce il parametro di un metodo, contiene il vettore di cui si vogliono calcolate
+     * le statistiche.
      */
     public StatisticheDataset(Vector<?> vettore)
     {
         this.vettore=vettore;
     }
+
     /**
-     * Il metodo calcola le statistiche dei vari attributi del vettore passato come parametro durante l'istanziamento della classe
+     *
+     * @param attributo param definisce il parametro di un metodo, contiene il record del dataset da cui calcolare
+     * le statistiche
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un oggetto di tipo StatisticheDati
+     * contenente le statistiche dei vari attributi del vettore passato come parametro durante l'istanziamento della classe.
      */
     public StatisticheDati getStatistiche(String attributo)
     {
@@ -28,8 +37,11 @@ public class StatisticheDataset
     }
 
     /**
-     *La funzione va ad estrapolare la colonna del dataset corrispondente all'attributo
-
+     *
+     * @param attributo param definisce il parametro di un metodo, contiene la colonna del dataset
+     * corrispondente all'attributo
+     * @return Indica i valori di ritorno di un metodo,in questo caso effettua un vettore contenente i
+     * valori contenuti nella colonna.
      */
     private ArrayList<Object> toArray(String attributo)
     {
